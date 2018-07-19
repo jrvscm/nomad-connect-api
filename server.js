@@ -31,9 +31,8 @@ passport.use(localStrategy);
 passport.use(jwtStrategy);
 
 //define routers here like this
-//app.use('/api/users/', usersRouter);
-//app.use('/api/auth/', authRouter);
-//app.use('/api/habits/', habitRouter);
+app.use('/users/', usersRouter);
+app.use('/auth/', authRouter);
 
 app.use('*', (req, res) => {
 	return res.status(404).json({message: 'Not Found'});
@@ -43,7 +42,7 @@ let server;
 
 function runServer(databaseUrl=DATABASE_URL, port=PORT) {
 	return new Promise((resolve, reject) => {
-		mongoose.connect(databaseUrl, err => {
+		mongoose.connect(databaseUrl, {useNewUrlParser: true}, err => {
 			if(err) {
 				return reject(err);
 			}
