@@ -31,8 +31,8 @@ passport.use(localStrategy);
 passport.use(jwtStrategy);
 
 //define routers here like this
-app.use('/users/', usersRouter);
-app.use('/auth/', authRouter);
+app.use('/api/users/', usersRouter);
+app.use('/api/auth/', authRouter);
 
 app.use('*', (req, res) => {
 	return res.status(404).json({message: 'Not Found'});
