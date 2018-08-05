@@ -21,7 +21,7 @@ const UserSchema = mongoose.Schema({
 
 
 
-UserSchema.methods.apiRepr = function(user) {
+UserSchema.methods.apiRepr = (user) => {
     return {
         username: this.username || '',
         firstName: this.firstName || '',
@@ -30,11 +30,11 @@ UserSchema.methods.apiRepr = function(user) {
     };
 };
 
-UserSchema.methods.validatePassword = function(password) {
+UserSchema.methods.validatePassword = (password) => {
     return bcrypt.compare(password, this.password);
 };
 
-UserSchema.statics.hashPassword = function(password) {
+UserSchema.statics.hashPassword = (password) => {
     return bcrypt.hash(password, 10);
 };
 
