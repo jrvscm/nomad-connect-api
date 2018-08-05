@@ -124,7 +124,7 @@ router.post('/', jsonParser, (req, res) => {
             });
         })
         .then(user => {
-            return res.status(201).json(user.apiRepr());
+            return res.status(201).json(User.apiRepr());
         })
         .catch(err => {
             // Forward validation errors on to the client, otherwise give a 500
