@@ -30,11 +30,11 @@ UserSchema.methods.apiRepr = () => {
     };
 };
 
-UserSchema.methods.validatePassword = function(password) {
+UserSchema.methods.validatePassword = (password) => {
     return bcrypt.compare(password, this.password);
 };
 
-UserSchema.statics.hashPassword = function(password) {
+UserSchema.statics.hashPassword = (password) => {
     return bcrypt.hash(password, 10);
 };
 
