@@ -21,7 +21,7 @@ const UserSchema = mongoose.Schema({
 
 
 
-UserSchema.methods.apiRepr = (user) => {
+UserSchema.methods.apiRepr = ({user}) => {
     return {
         username: this.username || '',
         firstName: this.firstName || '',
